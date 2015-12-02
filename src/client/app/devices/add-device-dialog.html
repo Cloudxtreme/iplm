@@ -1,0 +1,73 @@
+<md-dialog class="md-padding">
+    <md-dialog-content>
+
+        <md-title>Add Device</md-title>
+
+        <p ng-if="form.$submitted && form.$invalid" class="md-warn" layout="row" layout-align="start center">
+            <md-icon>error_outline</md-icon>
+            <span>&nbsp; Required fields are missing.</span>
+        </p>
+
+        <form name="form" ng-submit="ctrl.addItem()">
+            <div layout="row" class="input-row">
+                <md-input-container flex>
+                    <label>Location</label>
+                    <input name="location" ng-model="ctrl.device.location" required>
+                </md-input-container>
+                <md-input-container flex>
+                    <label>Device Type</label>
+                    <md-select required ng-model="ctrl.device.device">
+                        <md-option ng-value="opt" ng-repeat="opt in ctrl.deviceTypes">{{ opt }}</md-option>
+                    </md-select>
+                </md-input-container>
+            </div>
+            <md-subheader>PC Data</md-subheader>
+            <div layout="row" class="input-row">
+                <md-input-container flex>
+                    <label>Name</label>
+                    <input name="pc_name" ng-model="ctrl.device.pc_name">
+                </md-input-container>
+                <md-input-container flex>
+                    <label>IP Address</label>
+                    <input name="ip_address" ng-model="ctrl.device.ip_address" required>
+                </md-input-container>
+                <md-input-container flex>
+                    <label>MAC Address</label>
+                    <input name="mac_address" ng-model="ctrl.device.mac_address">
+                </md-input-container>
+            </div>
+            <md-subheader>Miscellaneous</md-subheader>
+            <div layout="row" class="input-row">
+                <md-input-container flex>
+                    <label>Port Type</label>
+                    <input name="port_type" ng-model="ctrl.device.port_type">
+                </md-input-container>
+                <md-input-container flex>
+                    <label>Port</label>
+                    <input name="port" ng-model="ctrl.device.port">
+                </md-input-container>
+                <md-input-container flex>
+                    <label>MES Entity ID</label>
+                    <input name="ent_id" type="number" min="0" max="9999" ng-model="ctrl.device.ent_id">
+                </md-input-container>
+            </div>
+            <div layout="row" class="input-row">
+                <md-input-container flex>
+                    <label>PLC Type</label>
+                    <input name="plc_type" ng-model="ctrl.device.plc_type">
+                </md-input-container>
+                <md-input-container flex>
+                    <label>Firmware</label>
+                    <input name="plc_firmware" ng-model="ctrl.device.firmware">
+                </md-input-container>
+            </div>
+        </form>
+
+    </md-dialog-content>
+
+    <div class="md-actions">
+        <md-button class="md-primary" ng-click="ctrl.update()" ng-disabled="form.$invalid">Save</md-button>
+        <md-button class="md-primary" ng-click="ctrl.cancel()">Cancel</md-button>
+    </div>
+
+</md-dialog>

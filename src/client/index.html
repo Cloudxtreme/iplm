@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+    <head>
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="msapplication-tap-highlight" content="no" />
+        <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width, height=device-height" />
+        <title>IP Address List Manager</title>
+        
+        <link href='https://fonts.googleapis.com/css?family=RobotoDraft:400,500,700,400italic' rel='stylesheet' type='text/css'>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons"  rel="stylesheet">
+        <!--build:css styles/lib.css-->
+        <!-- bower:css -->
+        <link rel="stylesheet" href="/bower_components/angular-material/angular-material.css" />
+        <!-- endbower -->
+        <!-- endbuild -->
+        <!--build:css styles/app.css-->
+        <!-- inject:css -->
+        <link rel="stylesheet" href="/.tmp/styles.css">
+        <!-- endinject -->
+        <!-- endbuild -->
+    
+        <style type="text/css">
+            /**
+            * Hide when Angular is not yet loaded and initialized
+            */
+            
+            [ng\:cloak],
+            [ng-cloak],
+            [data-ng-cloak],
+            [x-ng-cloak],
+            .ng-cloak,
+            .x-ng-cloak {
+                display: none !important;
+            }
+        </style>
+    </head>
+    <body layout="row" ng-app="ipListApp" ng-controller="GlobalCtrl" ng-cloak>
+        <div ng-include="'app/home/sidebar.html'"></div>
+        <div layout="column" flex>
+            <div ng-include="'app/home/toolbar.html'"></div>
+            <md-content layout="column" flex ui-view layout-padding></md-content>
+        </div>
+        <!--build:js js/lib.js -->
+        <!-- bower:js -->
+        <script src="/bower_components/angular/angular.js"></script>
+        <script src="/bower_components/angular-animate/angular-animate.js"></script>
+        <script src="/bower_components/angular-aria/angular-aria.js"></script>
+        <script src="/bower_components/angular-material/angular-material.js"></script>
+        <script src="/bower_components/angular-resource/angular-resource.js"></script>
+        <script src="/bower_components/angular-cookies/angular-cookies.js"></script>
+        <script src="/bower_components/angular-touch/angular-touch.js"></script>
+        <script src="/bower_components/angular-sanitize/angular-sanitize.js"></script>
+        <script src="/bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+        <!-- endbower -->
+        <!-- endbuild -->
+        <!--build:js js/app.js -->
+        <!-- inject:js -->
+        <script src="/src/client/app/core/app.module.js"></script>
+        <script src="/src/client/app/core/root.module.js"></script>
+        <script src="/src/client/app/core/global.controller.js"></script>
+        <script src="/src/client/app/core/list.service.js"></script>
+        <script src="/src/client/app/devices/addDevice.controller.js"></script>
+        <script src="/src/client/app/devices/device.controller.js"></script>
+        <script src="/src/client/app/groups/addGroup.controller.js"></script>
+        <script src="/src/client/app/groups/deleteGroup.controller.js"></script>
+        <script src="/src/client/app/search/search.controller.js"></script>
+        <script src="/src/client/app/home/home.controller.js"></script>
+        <script src="/src/client/app/home/sidebar.controller.js"></script>
+        <!-- endinject -->
+        <!-- inject:templates:js -->
+        <!-- endinject -->
+        <!-- endbuild -->
+        <script type="text/javascript" src="cordova.js"></script>
+    </body>
+</html>

@@ -1,0 +1,27 @@
+<section layout="row" flex>
+    <md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')">
+        <md-toolbar class="md-hue-2">
+            <span flex></span>
+            <div layout="column" class="md-toolbar-tools-bottom inset">
+                <div>Folders</div>
+            </div>
+        </md-toolbar>
+        <md-content layout-padding ng-controller="SidebarController">
+            <md-list>
+                <md-list-item ng-repeat="group in groups" ng-click="navigateTo('group', '{{ group._id }}')">
+                    <p>{{group.name}}</p>
+                </md-list-item>
+                <md-divider></md-divider>
+                <md-list-item ng-click="showSettings()">
+                    <md-item-content md-ink-ripple layout="row" layout-align="start center">
+                        <div class="inset">
+                            <md-icon class="md-dark">settings</md-icon>
+                        </div>
+                        <div class="inset">Settings
+                        </div>
+                    </md-item-content>
+                </md-list-item>
+            </md-list>
+        </md-content>
+    </md-sidenav>
+</section>

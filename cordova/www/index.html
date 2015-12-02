@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+    <head>
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="msapplication-tap-highlight" content="no" />
+        <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width, height=device-height" />
+        <title>IP Address List Manager</title>
+        
+        <link href='https://fonts.googleapis.com/css?family=RobotoDraft:400,500,700,400italic' rel='stylesheet' type='text/css'>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons"  rel="stylesheet">
+        <link rel="stylesheet" href="styles/lib-17eaf01161.css">
+        <link rel="stylesheet" href="styles/app-fd313654c2.css">
+    
+        <style type="text/css">
+            /**
+            * Hide when Angular is not yet loaded and initialized
+            */
+            
+            [ng\:cloak],
+            [ng-cloak],
+            [data-ng-cloak],
+            [x-ng-cloak],
+            .ng-cloak,
+            .x-ng-cloak {
+                display: none !important;
+            }
+        </style>
+    </head>
+    <body layout="row" ng-app="ipListApp" ng-controller="GlobalCtrl" ng-cloak>
+        <div ng-include="'app/home/sidebar.html'"></div>
+        <div layout="column" flex>
+            <div ng-include="'app/home/toolbar.html'"></div>
+            <md-content layout="column" flex ui-view layout-padding></md-content>
+        </div>
+        <script src="js/lib-9fece8be34.js"></script>
+        <script src="js/app-3538450885.js"></script>
+        <script type="text/javascript" src="cordova.js"></script>
+    </body>
+</html>

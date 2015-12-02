@@ -1,0 +1,47 @@
+<md-bottom-sheet class="md-list md-has-header">
+    <md-subheader>
+        <span class="name">{{ cp.group.name }}</span>
+    </md-subheader>
+    <p ng-if="item.form.$submitted && item.form.$invalid" class="md-warn" layout="row" layout-align="start center">
+        <md-icon>error_outline</md-icon>
+        <span>&nbsp; All fields are required.</span>
+    </p>
+
+    <form name="item.form" ng-submit="cp.update()">
+        <div layout="row" class="input-row">
+            <md-input-container flex>
+                <label>Range</label>
+                <input name="range" ng-model="cp.group.ip_info.range">
+            </md-input-container>
+            <md-input-container flex>
+                <label>Subnet</label>
+                <input name="subnet" ng-model="cp.group.ip_info.subnet">
+            </md-input-container>
+        </div>
+        <div layout="row" class="input-row">
+            <md-input-container flex>
+                <label>Gateway</label>
+                <input name="gateway" ng-model="cp.group.ip_info.gateway">
+            </md-input-container>
+            <md-input-container flex>
+                <label>Primary DNS</label>
+                <input name="dns" ng-model="cp.group.ip_info.dns">
+            </md-input-container>
+            <md-input-container flex>
+                <label>Secondary DNS</label>
+                <input name="subnet" ng-model="cp.group.ip_info.dns2">
+            </md-input-container>
+        </div>
+        <div layout="row" class="input-row">
+            <md-input-container flex>
+                <label>Notes</label>
+                <input name="notes" ng-model="cp.group.notes">
+            </md-input-container>
+        </div>
+    </form>
+    <div class="md-actions">
+        <md-button class="md-warn md-hue-2" ng-click="cp.delete()">Delete</md-button>
+        <md-button class="md-primary" ng-click="cp.save()" ng-disabled="item.form.$invalid">Save</md-button>
+        <md-button class="md-primary" ng-click="cp.cancel()">Cancel</md-button>
+    </div>
+</md-bottom-sheet>

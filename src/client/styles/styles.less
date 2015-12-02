@@ -1,0 +1,104 @@
+/**
+Styling for the app in general
+*/
+
+body {
+    height: 100vh;
+}
+
+.toolbardemoScrollShrink md-list md-item .face {
+    width: 48px;
+    margin: 16px;
+    border-radius: 48px;
+    border: 1px solid #ddd;
+}
+
+
+/* fade animation */
+
+.animate-show {
+    transition: 0.75s ease-out opacity;
+    opacity: 1;
+}
+
+.animate-show.ng-hide {
+    height: 0;
+    min-height: 0;
+    opacity: 0;
+    overflow: hidden;
+}
+
+
+/* The search overlay appears when the search bar is active to grey out the rest of the screen */
+
+.search-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    z-index: 1;
+}
+
+md-input-container.search-box.md-default-theme:not(.md-input-invalid).md-input-focused.md-accent label {
+    padding-top: 15px;
+}
+
+md-toolbar {
+    z-index: 2;
+}
+
+.page {
+    /*min-height:100%;*/
+    /*position:absolute;*/
+    z-index: 0;
+    /*margin-top:63px;*/
+    top: 0;
+    bottom: 0;
+    /*padding-bottom: 63px;*/
+}
+
+.noscroll {
+    overflow: hidden;
+    top: 0;
+}
+
+.toolbar-item {
+    -webkit-transition: all linear 0.5s;
+    transition: all linear 0.5s;
+    max-width: 100%;
+    overflow-x: hidden;
+    white-space: nowrap;
+}
+
+.toolbar-item.ng-hide {
+    max-width: 0;
+}
+
+.toolbar-item.ng-enter,
+.toolbar-item.ng-leave {
+    -webkit-transition: all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
+    transition: all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
+}
+
+.toolbar-item.ng-enter,
+.toolbar-item.ng-leave.ng-leave-active {
+    max-width: 0;
+}
+
+.toolbar-item.ng-leave,
+.toolbar-item.ng-enter.ng-enter-active {
+    opacity: 1;
+    max-width: 100%;
+}
+/*
+  Suggestions for tweaks when using material design on mobile
+*/
+
+
+/* Several interacted elements get dotted borders after interaction, which is not expected on mobile devices */
+
+md-radio-group {
+    border: none
+}

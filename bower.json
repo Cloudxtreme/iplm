@@ -1,0 +1,28 @@
+{
+  "name": "ipList",
+  "description": "IP address list manager",
+  "private": true,
+  "version": "0.0.1",
+  "homepage": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.4.8",
+    "angular-animate": "^1.4.8",
+    "angular-aria": "^1.4.8",
+    "angular-material": "master",
+    "material-design-icons": "~2.0.0",
+    "angular-resource": "~1.4.8",
+    "angular-cookies": "~1.4.8",
+    "angular-touch": "~1.4.8",
+    "angular-sanitize": "~1.4.8",
+    "angular-ui-router": "ui-router#~0.2.15",
+    "material-refresh": "~0.1.0"
+  }
+}

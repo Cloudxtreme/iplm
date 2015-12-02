@@ -1,0 +1,27 @@
+<md-list>
+    <md-list-item ng-repeat="device in devices" class="md-3-line" ng-click="showDetails('{{device.groupId}}','{{device._id}}')">
+        <div layout="row" flex style="padding-left:10px">
+            <md-icon layout="column" layout-align="start end" ng-style="{color: device.icon.color }" md-svg-icon="{{ device.icon.name }}" aria-label="{{ device.icon.name }}"></md-icon>
+            <div class="md-list-item-text md-padding">
+                <h4>{{ device.device }}</h4>
+                <h3>{{ device.location }}</h3>
+                <p>{{ device.ip_address }}</p>
+            </div>
+        </div>
+    </md-list-item>
+</md-list>
+<md-fab-speed-dial md-direction="up" class="md-fab-bottom-right md-fling">
+    <md-fab-trigger>
+        <md-button aria-label="Add..." class="md-fab md-primary md-hue-2">
+            <md-icon>add</md-icon>
+        </md-button>
+    </md-fab-trigger>
+    <md-fab-actions>
+        <md-button class="md-fab md-raised md-mini md-primary md-hue-3" ng-click="addDevice($event)" aria-label="Add Device">
+            <md-icon>computer</md-icon>
+        </md-button>
+        <md-button class="md-fab md-raised md-mini md-primary md-hue-3" ng-click="addGroup($event)" aria-label="Add Group">
+            <md-icon>folder</md-icon>
+        </md-button>
+    </md-fab-actions>
+</md-fab-speed-dial>
