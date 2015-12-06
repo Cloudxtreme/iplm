@@ -17,7 +17,7 @@
     specific language governing permissions and limitations
     under the License.
 -->
-<html>
+<html ng-app="ipListApp">
     <head>
         <meta name="format-detection" content="telephone=no" />
         <meta name="msapplication-tap-highlight" content="no" />
@@ -29,6 +29,7 @@
         <!--build:css styles/lib.css-->
         <!-- bower:css -->
         <link rel="stylesheet" href="/bower_components/angular-material/angular-material.css" />
+        <link rel="stylesheet" href="/bower_components/angular-md-pull-to-refresh/angular-md-pull-to-refresh.css" />
         <!-- endbower -->
         <!-- endbuild -->
         <!--build:css styles/app.css-->
@@ -52,12 +53,13 @@
             }
         </style>
     </head>
-    <body layout="row" ng-app="ipListApp" ng-controller="GlobalCtrl" ng-cloak>
+    <body layout="row" ng-controller="GlobalCtrl" ng-cloak>
         <div ng-include="'app/home/sidebar.html'"></div>
         <div layout="column" flex>
             <div ng-include="'app/home/toolbar.html'"></div>
             <md-content layout="column" flex ui-view layout-padding></md-content>
         </div>
+        
         <!--build:js js/lib.js -->
         <!-- bower:js -->
         <script src="/bower_components/angular/angular.js"></script>
@@ -69,6 +71,7 @@
         <script src="/bower_components/angular-touch/angular-touch.js"></script>
         <script src="/bower_components/angular-sanitize/angular-sanitize.js"></script>
         <script src="/bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+        <script src="/bower_components/angular-md-pull-to-refresh/angular-md-pull-to-refresh.js"></script>
         <!-- endbower -->
         <!-- endbuild -->
         <!--build:js js/app.js -->
@@ -79,11 +82,11 @@
         <script src="/src/client/app/core/list.service.js"></script>
         <script src="/src/client/app/devices/addDevice.controller.js"></script>
         <script src="/src/client/app/devices/device.controller.js"></script>
+        <script src="/src/client/app/home/home.controller.js"></script>
+        <script src="/src/client/app/home/sidebar.controller.js"></script>
         <script src="/src/client/app/groups/addGroup.controller.js"></script>
         <script src="/src/client/app/groups/deleteGroup.controller.js"></script>
         <script src="/src/client/app/search/search.controller.js"></script>
-        <script src="/src/client/app/home/home.controller.js"></script>
-        <script src="/src/client/app/home/sidebar.controller.js"></script>
         <!-- endinject -->
         <!-- inject:templates:js -->
         <!-- endinject -->

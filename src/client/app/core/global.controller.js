@@ -9,7 +9,7 @@
      * Controller of the ipListApp
      */
     angular.module('ipListApp')
-        .controller('GlobalCtrl', function ($scope, $rootScope, $mdSidenav, $mdToast, $mdDialog, $state) {
+        .controller('GlobalCtrl', function ($scope, $rootScope, $mdSidenav, $mdToast, $mdDialog, $state, $window) {
 
             $scope.showDevice = false;
             $scope.showSearchResults = false;
@@ -90,11 +90,7 @@
              * A replacement for the sidenav toggle button if it is replaced with a hamburger action.
              */
             $scope.handleHamburger = function () {
-                if ($rootScope.isHistoryEmpty()) {
                     $scope.toggleSideNav();
-                } else {
-                    $rootScope.backFunction(true);
-                }
             };
 
             $scope.openSidenav = function () {
@@ -141,11 +137,7 @@
              * A replacement for the sidenav toggle button if it is replaced with a hamburger action.
              */
             $scope.handleHamburger = function () {
-                if ($rootScope.isHistoryEmpty()) {
                     $scope.toggleSideNav();
-                } else {
-                    $rootScope.backFunction(true);
-                }
             };
 
             /**
@@ -270,10 +262,8 @@
             };
 
             var backButton = function () {
-                $rootScope.backFunction();
-                //$rootScope.$apply();
+                $window.history.back();
             };
-            document.addEventListener('backbutton', backButton, false);
 
         });
 

@@ -14,7 +14,7 @@
         $scope.showGroupDetails = showGroupDetails;
         $scope.selected = [];
         $scope.Group = [];
-
+        
         $scope.$on('ShowGroupDetails', function (event) {
             showGroupDetails(event);
         });
@@ -55,12 +55,19 @@
             }).then($scope.$emit('refreshSidebar'));
         };
 
+        $scope.refreshFunction = function() {
+            return $list.groups.get({
+                    id: $stateParams.id
+                }, success).$promise;
+        }
+        
         getDevices();
 
         // *********************************
         // Internal methods
         // *********************************
 
+        
         function getDevices() {
             var _id = $stateParams.id;
             if (typeof (_id) === 'undefined') {

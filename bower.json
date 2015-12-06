@@ -23,6 +23,6 @@
     "angular-touch": "~1.4.8",
     "angular-sanitize": "~1.4.8",
     "angular-ui-router": "ui-router#~0.2.15",
-    "material-refresh": "~0.1.0"
+    "angular-md-pull-to-refresh": "infomofo/angular-md-pull-to-refresh"
   }
 }

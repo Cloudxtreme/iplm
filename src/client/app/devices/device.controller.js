@@ -33,6 +33,8 @@
             case 'Switch':
                 icon.color = '#90C';
                 break;
+            case 'Device':
+                icon.color = '#A3006F'
             }
             vm.device.icon = icon;
             $list.devices.update({
@@ -65,7 +67,7 @@
             });
         };
 
-        vm.deviceTypes = ['PLC', 'HMI', 'Printer', 'PC', 'Switch'];
+        vm.deviceTypes = ['PLC', 'HMI', 'Printer', 'PC', 'Switch', 'Device'];
 
         vm.cancel = function () {
             $state.go('group', {

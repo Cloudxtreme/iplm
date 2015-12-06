@@ -19,7 +19,7 @@
 
         function success(group) {
             $mdDialog.hide(group);
-            $scope.$emit('refreshSidebar');
+            //$scope.$emit('refreshSidebar');
         }
     }
 })();

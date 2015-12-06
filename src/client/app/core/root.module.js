@@ -9,86 +9,38 @@
 
     angular.module('ipListApp')
         .run(function ($rootScope, $state) {
+
             $rootScope.$on('$stateChangeSuccess', function (event, toState, toParams, fromState) {
                 $state.previous = fromState;
             });
-        })
-        .run(function ($rootScope, $location, $mdToast, $mdSidenav, $templateCache) {
-
-            var history = [];
-
-            $rootScope.$on('$routeChangeStart', function(event, next, current) {
-                if (typeof(current) !== 'undefined'){
-                    $templateCache.remove(current.templateUrl);
-                }
-            });
             
-            $rootScope.$on('$routeChangeSuccess', function () {
-                var path = $location.$$path;
-                //tracker.sendAppView(path);
-                if (path !== '/') {
-                    history.push($location.$$path);
+            $rootScope.backFunction = onBackButton;
+            
+            function onBackButton (e) {
+                if($state.previous.url === '/' || $state.previous.url === '^'){
+                    e.preventDefault();
+                    navigator.app.exitApp();
                 }
-            });
-
-            var backFunction = function () {
-                var prevUrl = history.length > 1 ? history.splice(-2)[0] : '/';
-                $location.path(prevUrl);
-            };
-
-            $rootScope.backFunction = function () {
-                backFunction();
-            };
-
-            var onResume = function () {
+                else {
+                    if (typeof (navigator.app) !== "undefined") {
+                        navigator.app.backHistory();
+                    } else {
+                        window.history.back();
+                    }
+                }
+            }
+            
+            function onResume () {
                 $rootScope.$emit('Resumed');
             };
 
-            //document.addEventListener("deviceready", function() {
-            //console.log('deviceready');
-            document.addEventListener('resume', onResume, false);
-            document.addEventListener('online', onResume, false);
-            // detect application touches and emit an event on rootscope:
-            window.addEventListener('statusTap', function () {
-                $rootScope.$emit('NavClicked');
+            document.addEventListener("deviceready", function() {
+                document.addEventListener('resume', onResume, false); //The resume event fires when the native platform pulls the application out from the background.
+                document.addEventListener('backbutton', onBackButton, false);
+                // detect application touches and emit an event on rootscope:
+                window.addEventListener('statusTap', function () {
+                    $rootScope.$emit('NavClicked');
+                });
             });
-            //});
-
-            /**
-             * Clears the known history
-             */
-            $rootScope.clearHistory = function () {
-                history = [];
-            };
-
-            /**
-             * Returns if there is no history left to return to
-             * @returns {boolean}
-             */
-            $rootScope.isHistoryEmpty = function () {
-                return history.length <= 1;
-            };
-
-            /**
-             * Returns if there is eligible history to go back to
-             * @returns {boolean}
-             */
-            $rootScope.isHistory = function () {
-                return history.length > 1;
-            };
-
-            /**
-             * This function should be called to change views- 
-             * this will retain history and encapsulate any other behaviors.
-             * @param url
-             */
-            $rootScope.go = function (url) {
-                // Hide any active toasts when the route changes
-                $mdToast.hide();
-
-                $mdSidenav('left').close()
-                    .then(function () {});
-                $location.path(url);
-            };
         });
 })();

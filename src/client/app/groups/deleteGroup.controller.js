@@ -24,7 +24,7 @@
 
         function success() {
             $mdDialog.hide();
-            $scope.$emit('refreshSidebar');
+            //$scope.$emit('refreshSidebar');
             $state.go('home');
         }
     }

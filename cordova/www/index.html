@@ -17,7 +17,7 @@
     specific language governing permissions and limitations
     under the License.
 -->
-<html>
+<html ng-app="ipListApp">
     <head>
         <meta name="format-detection" content="telephone=no" />
         <meta name="msapplication-tap-highlight" content="no" />
@@ -44,14 +44,15 @@
             }
         </style>
     </head>
-    <body layout="row" ng-app="ipListApp" ng-controller="GlobalCtrl" ng-cloak>
+    <body layout="row" ng-controller="GlobalCtrl" ng-cloak>
         <div ng-include="'app/home/sidebar.html'"></div>
         <div layout="column" flex>
             <div ng-include="'app/home/toolbar.html'"></div>
             <md-content layout="column" flex ui-view layout-padding></md-content>
         </div>
-        <script src="js/lib-9fece8be34.js"></script>
-        <script src="js/app-3538450885.js"></script>
+        
+        <script src="js/lib-e07342aa4c.js"></script>
+        <script src="js/app-7c7ebf5ab1.js"></script>
         <script type="text/javascript" src="cordova.js"></script>
     </body>
 </html>

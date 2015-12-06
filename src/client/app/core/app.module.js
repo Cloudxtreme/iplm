@@ -8,10 +8,10 @@
             'ngCookies',
             'ngSanitize',
             'ngTouch',
-            'ui.router'])
-        .config(['$locationProvider', '$compileProvider', '$mdThemingProvider', '$mdIconProvider', 
-        function ($locationProvider, $compileProvider, $mdThemingProvider, $mdIconProvider) {
-            //$locationProvider.html5Mode(true).hashPrefix('!');
+            'ui.router',
+            'infomofo.angularMdPullToRefresh'])
+        .config(['$compileProvider', '$mdThemingProvider', '$mdIconProvider', 
+        function ($compileProvider, $mdThemingProvider, $mdIconProvider) {
 
             $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|mailto|file|chrome-extension):/);
             $compileProvider.debugInfoEnabled(false);
@@ -35,7 +35,8 @@
                 .icon('Printer', 'images/printer88.svg')
                 .icon('HMI', 'images/device124.svg')
                 .icon('PLC', 'images/settings48.svg')
-                .icon('Switch', 'images/settings48.svg');
+                .icon('Switch', 'images/settings48.svg')
+                .icon('Device', 'images/settings48.svg');
         }])
         .config(['$stateProvider', '$urlRouterProvider', 
         function ($stateProvider, $urlRouterProvider) {

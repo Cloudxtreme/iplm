@@ -43,7 +43,7 @@
                 success);
         };
 
-        vm.deviceTypes = ['PLC', 'HMI', 'Printer', 'PC', 'Switch'];
+        vm.deviceTypes = ['PLC', 'HMI', 'Printer', 'PC', 'Switch', 'Device'];
 
         function success(group) {
             $mdDialog.hide(group);
