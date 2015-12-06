@@ -5,8 +5,8 @@
         .factory('$list', ['$resource', ListService]);
 
     function ListService($resource) {
-        var url = 'http://iplistapi-bgauvey.rhcloud.com/';
-        //var url = 'http://localhost:8080/';
+        
+        var url = 'http://localhost:8080/';
         return {
             groups: $resource(
                 url + 'api/groups/:id', {
