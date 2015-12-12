@@ -54,19 +54,29 @@
                 templateUrl: 'app/groups/add-group-dialog.html'
             }).then($scope.$emit('refreshSidebar'));
         };
-
-        $scope.refreshFunction = function() {
-            return $list.groups.get({
-                    id: $stateParams.id
-                }, success).$promise;
-        }
         
         getDevices();
+
+        $scope.$watch('devices', function(value){
+            //var val = value || [];
+            //if (val.length > 0) {
+                mRefresh({
+                    nav: '#navMain',
+                    scrollEl: '#contentMain',
+                    onBegin: refreshFunction
+                });
+            //}
+        });
 
         // *********************************
         // Internal methods
         // *********************************
-
+        function refreshFunction() {
+            console.info('refresh requested.');
+            return $list.groups.get({
+                    id: $stateParams.id
+                }, success).$promise;
+        }
         
         function getDevices() {
             var _id = $stateParams.id;
@@ -89,11 +99,13 @@
                 }
             } else {
                 $scope.$emit('GroupChanged', {
-                    name: group.name
+                    name: group.name,
+                    id: $stateParams.id
                 });
                 $scope.Group = group;
                 $scope.devices = group.devices;
             }
+            mRefresh.resolve();
         }
 
         /**

@@ -7,9 +7,7 @@
             'ngAnimate',
             'ngCookies',
             'ngSanitize',
-            'ngTouch',
-            'ui.router',
-            'infomofo.angularMdPullToRefresh'])
+            'ui.router'])
         .config(['$compileProvider', '$mdThemingProvider', '$mdIconProvider', 
         function ($compileProvider, $mdThemingProvider, $mdIconProvider) {
 

@@ -13,7 +13,6 @@
         vm.errorText = {};
         vm.searchResults = [];
         vm.showDetails = function (id, deviceId) {
-            $scope.$emit('showDeviceToolbar');
             $state.go('device', {
                 id: id,
                 deviceId: deviceId
@@ -24,7 +23,6 @@
         // Internal methods
         // *********************************
         function init() {
-            $scope.$emit('showSearchToolbar');
             $list.search.query({
                 searchQuery: $stateParams.searchQuery
             }, success, error);

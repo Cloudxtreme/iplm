@@ -8,7 +8,7 @@
         </md-toolbar>
         <md-content layout-padding ng-controller="SidebarController">
             <md-list>
-                <md-list-item ng-repeat="group in groups" ng-click="navigateTo('group', '{{ group._id }}')">
+                <md-list-item ng-repeat="group in groups" ng-click="navigateTo('group', group._id )">
                     <p>{{group.name}}</p>
                 </md-list-item>
                 <md-divider></md-divider>

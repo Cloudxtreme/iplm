@@ -11,35 +11,28 @@
     angular.module('ipListApp')
         .controller('GlobalCtrl', function ($scope, $rootScope, $mdSidenav, $mdToast, $mdDialog, $state, $window) {
 
-            $scope.showDevice = false;
-            $scope.showSearchResults = false;
-            $scope.showMainToolbar = true;
-            
             $rootScope.$on('$stateChangeStart', function(event, toState, toParams, fromState, fromParams){ 
-                    // event.preventDefault(); 
-                    // transitionTo() promise will be rejected with a 'transition prevented' error
-                    //console.info(toState.name);
-                    switch(toState.name) {
-                        case 'device': {
-                            $scope.showDevice = true;
-                            $scope.showMainToolbar = false;
-                            $scope.showSearchResults = false;
-                            break;
-                        }
-                        case 'search': {
-                            $scope.showSearchResults = true;
-                            $scope.showDevice = false;
-                            $scope.showMainToolbar = false;
-                            break;
-                        }
-                        case 'home', 'group': {
-                            $scope.showMainToolbar = true;
-                            $scope.showSearchResults = false;
-                            $scope.showDevice = false;
-                            break;
-                        }
+                switch(toState.name) {
+                    case 'device': {
+                        $scope.showDevice = true;
+                        $scope.showMainToolbar = false;
+                        $scope.showSearchResults = false;
+                        break;
                     }
-                });
+                    case 'search': {
+                        $scope.showSearchResults = true;
+                        $scope.showDevice = false;
+                        $scope.showMainToolbar = false;
+                        break;
+                    }
+                    case 'home', 'group': {
+                        $scope.showMainToolbar = true;
+                        $scope.showSearchResults = false;
+                        $scope.showDevice = false;
+                        break;
+                    }
+                }
+            });
 
             $scope.goBack = function () {
                 backButton();
@@ -50,7 +43,8 @@
             };
 
             $scope.CurrentGroup = {
-                name: ''
+                name: '',
+                id: ''
             };
 
             $scope.$on('GroupChanged', function (event, data) {
@@ -90,7 +84,7 @@
              * A replacement for the sidenav toggle button if it is replaced with a hamburger action.
              */
             $scope.handleHamburger = function () {
-                    $scope.toggleSideNav();
+                $scope.toggleSideNav();
             };
 
             $scope.openSidenav = function () {
@@ -100,26 +94,20 @@
             };
 
             $scope.keyPress = function(keyCode) {
-                //console.log(keyCode);
                 if (keyCode === 13) {
                     $scope.executeSearch();
                 }    
             };
             
             $scope.executeSearch = function () {
-                var path = '/search/' + $scope.searchModel.searchQuery;
-                console.debug('go to path ' + path);
                 $state.go('search', {
                     'searchQuery': $scope.searchModel.searchQuery
                 });
-                $scope.disableSearch();
-                // lose focus on search bar
-                $rootScope.go(path);
+                $scope.searchModel.searchActive = false;
+                $scope.searchModel.searchQuery = null;
             };
 
             $scope.disableSearch = function () {
-                //var searchBox = angular.element('#searchBox');
-                //searchBox.blur();
                 $scope.searchModel.searchActive = false;
                 $scope.searchModel.searchQuery = null;
                 $scope.showMainToolbar = true;

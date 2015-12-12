@@ -6,7 +6,7 @@
         </div>
     </md-subheader>
     <md-list-item ng-repeat="device in ctrl.searchResults" class="md-3-line" ng-click="ctrl.showDetails('{{device.groupId}}','{{device._id}}')">
-        <div layout="row" flex style="padding-left:10px">
+        <div layout="row" flex class="md-whiteframe-z2" style="padding-left:10px">
             <md-icon layout="column" layout-align="start end" ng-style="{ color: device.icon.color }" md-svg-icon="{{ device.icon.name }}" aria-label="{{ device.icon.name }}"></md-icon>
             <div class="md-list-item-text md-padding">
                 <h4>{{ device.device }}</h4>
