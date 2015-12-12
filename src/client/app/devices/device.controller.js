@@ -5,9 +5,9 @@
         .module('ipListApp')
         .controller('DeviceController', deviceController);
 
-    deviceController.$inject = ['$list', '$stateParams', '$mdDialog', '$state', ];
+    deviceController.$inject = ['$list', '$stateParams', '$mdDialog', '$state', '$scope'];
     /* @ngInject */
-    function deviceController($list, $stateParams, $mdDialog, $state) {
+    function deviceController($list, $stateParams, $mdDialog, $state, $scope) {
         var vm = this;
         vm.device = {};
 
@@ -51,7 +51,11 @@
             ).$promise;
         };
 
-        vm.delete = function ($event) {
+        $scope.$on('DeleteDevice', function($event){
+            deleteDevice($event);
+        });
+        
+        function deleteDevice ($event) {
             var confirm = $mdDialog.confirm()
                 .title('Would you like to delete this device?')
                 .textContent('This action is not reversable.')

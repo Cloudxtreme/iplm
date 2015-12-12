@@ -42,6 +42,10 @@
                 $scope.$broadcast('ShowGroupDetails');
             };
 
+            $scope.deleteDevice = function ($event) {
+                $scope.$broadcast('DeleteDevice', $event);
+            };
+
             $scope.CurrentGroup = {
                 name: '',
                 id: ''
