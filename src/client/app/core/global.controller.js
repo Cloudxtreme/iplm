@@ -38,7 +38,7 @@
                 backButton();
             };
 
-            $scope.showGroupDetails = function (event) {
+            $scope.showGroupDetails = function () {
                 $scope.$broadcast('ShowGroupDetails');
             };
 
