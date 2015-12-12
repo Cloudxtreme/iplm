@@ -1,6 +1,6 @@
 <md-list>
-    <md-list-item  ng-repeat="device in devices" class="md-3-line" ng-click="showDetails(device.groupId,device._id)">
-        <div layout="row" flex class="md-whiteframe-z2" style="padding-left:10px">
+    <md-list-item  ng-repeat="device in devices" class="md-3-line md-whiteframe-z1" ng-click="showDetails(device.groupId,device._id)">
+        <div layout="row" flex>
             <md-icon layout="column" layout-align="start end" ng-style="{color: device.icon.color }" md-svg-icon="{{ device.icon.name }}" aria-label="{{ device.icon.name }}"></md-icon>
             <div class="md-list-item-text md-padding">
                 <h4>{{ device.device }}</h4>
