@@ -17,9 +17,11 @@
             $rootScope.backFunction = onBackButton;
             
             function onBackButton (e) {
-                if($state.previous.name === 'home' || $state.previous.url === '^'){
+                if($state.current.name === 'home' || $state.current.name === 'group'){
                     e.preventDefault();
-                    navigator.app.exitApp();
+                    if (typeof (navigator.app) !== "undefined") {
+                        navigator.app.exitApp();
+                    }
                 }
                 else {
                     if (typeof (navigator.app) !== "undefined") {
