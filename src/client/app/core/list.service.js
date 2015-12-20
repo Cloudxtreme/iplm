@@ -26,6 +26,11 @@
                         method: 'PUT'
                     }
                 }
+            ),
+            search: $resource(
+                url + 'api/search/:searchQuery', {
+                    searchQuery: '@searchQuery'
+                }
             )
         };
     }

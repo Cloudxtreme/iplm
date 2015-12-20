@@ -13,11 +13,16 @@
         vm.errorText = {};
         vm.searchResults = [];
         vm.showDetails = function (id, deviceId) {
+            console.log(id);
+            console.log(deviceId);
+            
             $state.go('device', {
                 id: id,
                 deviceId: deviceId
             });
         };
+        
+        init();
 
         // *********************************
         // Internal methods
