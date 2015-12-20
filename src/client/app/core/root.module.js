@@ -17,7 +17,7 @@
             $rootScope.backFunction = onBackButton;
             
             function onBackButton (e) {
-                if($state.previous.url === '/' || $state.previous.url === '^'){
+                if($state.previous.name === 'home' || $state.previous.url === '^'){
                     e.preventDefault();
                     navigator.app.exitApp();
                 }
