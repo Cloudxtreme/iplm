@@ -75,5 +75,8 @@ Thumbs.db
 ############################
 .vscode
 .tmp
-cordova\www
-cordova\platforms\android\assets\www
+
+
+# Cordova 
+##########################
+cordova/**
