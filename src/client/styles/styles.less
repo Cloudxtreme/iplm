@@ -1,35 +1,31 @@
-/**
-Styling for the app in general
-*/
+// Width variables (appears count calculates by raw css)
+@width: 100%; // Appears 4 times
 
 body {
-    height: 100vh;
+	height: 100vh;
 }
-
-.toolbardemoScrollShrink md-list md-item .face {
-    width: 48px;
-    margin: 16px;
-    border-radius: 48px;
-    border: 1px solid #ddd;
+.toolbardemoScrollShrink {
+	md-list {
+		md-item {
+			.face {
+				border-radius: 48px;
+				border: 1px solid #dddddd;
+				margin: 16px;
+				width: 48px;
+			}
+		}
+	}
 }
-
-
-/* fade animation */
-
 .animate-show {
-    transition: 0.75s ease-out opacity;
-    opacity: 1;
+	opacity: 1;
+	transition: 0.75s ease-out opacity;
 }
-
 .animate-show.ng-hide {
-    height: 0;
-    min-height: 0;
-    opacity: 0;
-    overflow: hidden;
+	height: 0;
+	min-height: 0;
+	opacity: 0;
+	overflow: hidden;
 }
-
-
-/* The search overlay appears when the search bar is active to grey out the rest of the screen */
 
 .search-overlay {
     position: fixed;
@@ -41,64 +37,61 @@ body {
     z-index: 1;
 }
 
-md-input-container.search-box.md-default-theme:not(.md-input-invalid).md-input-focused.md-accent label {
-    padding-top: 15px;
+md-input-container.search-box.md-input-theme {
+	&:not(.md-input-invalid).md-input-focused.md-accent {
+		label {
+			padding-top: 15px;
+		}
+        input {
+            padding-top: 30px;
+        }
+	}
+    position: absolute;
+    top: -10px;
+    width: 85%;
+    height: 90%;
 }
 
 md-toolbar {
-    z-index: 2;
+	z-index: 2;
 }
-
 .page {
-    /*min-height:100%;*/
-    /*position:absolute;*/
-    z-index: 0;
-    /*margin-top:63px;*/
-    top: 0;
-    bottom: 0;
-    /*padding-bottom: 63px;*/
+	bottom: 0;
+	top: 0;
+	z-index: 0;
 }
-
 .noscroll {
-    overflow: hidden;
-    top: 0;
+	overflow: hidden;
+	top: 0;
 }
-
 .toolbar-item {
-    -webkit-transition: all linear 0.5s;
-    transition: all linear 0.5s;
-    max-width: 100%;
-    overflow-x: hidden;
-    white-space: nowrap;
+	-webkit-transition: all linear 0.5s;
+	max-width: @width;
+	overflow-x: hidden;
+	transition: all linear 0.5s;
+	white-space: nowrap;
 }
-
 .toolbar-item.ng-hide {
-    max-width: 0;
+	max-width: 0;
 }
-
-.toolbar-item.ng-enter,
+.toolbar-item.ng-enter {
+	-webkit-transition: all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
+	max-width: 0;
+	transition: all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
+}
 .toolbar-item.ng-leave {
-    -webkit-transition: all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
-    transition: all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
+	-webkit-transition: all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
+	max-width: @width;
+	opacity: 1;
+	transition: all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
 }
-
-.toolbar-item.ng-enter,
 .toolbar-item.ng-leave.ng-leave-active {
-    max-width: 0;
+	max-width: 0;
 }
-
-.toolbar-item.ng-leave,
 .toolbar-item.ng-enter.ng-enter-active {
-    opacity: 1;
-    max-width: 100%;
+	max-width: @width;
+	opacity: 1;
 }
-/*
-  Suggestions for tweaks when using material design on mobile
-*/
-
-
-/* Several interacted elements get dotted borders after interaction, which is not expected on mobile devices */
-
 md-radio-group {
-    border: none
+	border: none;
 }

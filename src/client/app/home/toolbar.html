@@ -32,9 +32,9 @@
         <md-button class="md-icon-button" ng-click="toggleSearch()" aria-label="Back">
             <md-icon>arrow_back</md-icon>
         </md-button>
-        <md-input-container md-theme="input" flex>
+        <md-input-container md-theme="input" class="search-box" flex>
             <label>&nbsp;</label>
-            <input ng-model="searchModel.searchQuery" placeholder='Search Devices' ng-keyup="keyPress($event.keyCode)">
+            <input type="search" ng-model="searchModel.searchQuery" placeholder='Search Devices' ng-keyup="keyPress($event.keyCode)">
         </md-input-container>
     </div>
 </md-toolbar>
