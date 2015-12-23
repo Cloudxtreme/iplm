@@ -34,6 +34,8 @@
                 }
             });
 
+            $scope.loading = true;
+            
             $scope.goBack = function () {
                 backButton();
             };
@@ -59,6 +61,14 @@
                 $scope.$broadcast('doRefreshSidebar');
             });
 
+            $scope.$on('DeviceReady', function (event) {
+                $scope.loading = true;
+            });
+            
+            $scope.$on('Loading', function (event, state) {
+                $scope.loading = state;
+            });
+            
             $scope.navigateTo = function (state, id) {
                 $state.go(state, {
                     'id': id

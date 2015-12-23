@@ -106,6 +106,7 @@
                 $scope.devices = group.devices;
             }
             mRefresh.resolve();
+            $scope.$emit('Loading', false);
         }
 
         /**

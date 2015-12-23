@@ -36,8 +36,14 @@
                 $rootScope.$emit('Resumed');
             };
 
+            function onDeviceReady () {
+                $rootScope.$emit('DeviceReady');
+            };
+            
+            document.addEventListener('deviceready', onDeviceReady, false); 
             document.addEventListener("deviceready", function() {
-                document.addEventListener('resume', onResume, false); //The resume event fires when the native platform pulls the application out from the background.
+                //The resume event fires when the native platform pulls the application out from the background.
+                document.addEventListener('resume', onResume, false); 
                 document.addEventListener('backbutton', onBackButton, false);
                 // detect application touches and emit an event on rootscope:
                 window.addEventListener('statusTap', function () {

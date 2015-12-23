@@ -37,6 +37,9 @@
         </style>
     </head>
     <body layout="row" ng-controller="GlobalCtrl" ng-cloak>
+        <div layout="column" class="loading-overlay" layout-align="space-around" ng-if="loading">
+            <md-progress-circular md-mode="indeterminate"></md-progress-circular>
+        </div>
         <div ng-include="'app/home/sidebar.html'"></div>
         <div layout="column" flex>
             <div ng-include="'app/home/toolbar.html'"></div>
@@ -69,9 +72,9 @@
         <script src="/src/client/app/devices/device.controller.js"></script>
         <script src="/src/client/app/groups/addGroup.controller.js"></script>
         <script src="/src/client/app/groups/deleteGroup.controller.js"></script>
+        <script src="/src/client/app/search/search.controller.js"></script>
         <script src="/src/client/app/home/home.controller.js"></script>
         <script src="/src/client/app/home/sidebar.controller.js"></script>
-        <script src="/src/client/app/search/search.controller.js"></script>
         <!-- endinject -->
         <!-- inject:templates:js -->
         <!-- endinject -->
