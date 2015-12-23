@@ -20,6 +20,14 @@
                         break;
                     }
                     case 'search': {
+                        $scope.Title = "Search Results"
+                        $scope.showSearchResults = true;
+                        $scope.showDevice = false;
+                        $scope.showMainToolbar = false;
+                        break;
+                    }
+                    case 'settings': {
+                        $scope.Title = "Settings"
                         $scope.showSearchResults = true;
                         $scope.showDevice = false;
                         $scope.showMainToolbar = false;

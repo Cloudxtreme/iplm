@@ -62,6 +62,12 @@
                     templateUrl: 'app/devices/device-details.html',
                     controller: 'DeviceController',
                     controllerAs: 'ctrl'
+                })
+                .state('settings', {
+                    url: '/settings',
+                    templateUrl: 'app/settings/settings.html',
+                    controller: 'SettingsController',
+                    controllerAs: 'ctrl'
                 });
             // if none of the above states are matched, use this as the fallback
             $urlRouterProvider.otherwise('/');
