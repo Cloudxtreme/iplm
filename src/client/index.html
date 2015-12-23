@@ -40,6 +40,7 @@
         <div ng-include="'app/home/sidebar.html'"></div>
         <div layout="column" flex>
             <div ng-include="'app/home/toolbar.html'"></div>
+            <div ng-if="searchModel.searchActive" class="search-overlay" ng-click="toggleSearch()"></div>
             <md-content id="contentMain" layout="column" flex ui-view layout-padding></md-content>
         </div>
         
