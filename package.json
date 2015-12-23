@@ -1,7 +1,7 @@
 {
   "name": "ipList",
-  "version": "0.0.1",
-  "description": "IP address list manager",
+  "version": "1.0.0",
+  "description": "IP List Manager",
   "private": true,
   "author": "Bill Gauvey <bgauvey@ebarrette.com>",
   "license": "MIT",
