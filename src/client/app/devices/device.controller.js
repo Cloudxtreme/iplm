@@ -71,7 +71,7 @@
             });
         };
 
-        vm.deviceTypes = ['PLC', 'HMI', 'Printer', 'PC', 'Switch', 'Device'];
+        vm.deviceTypes = ['PLC', 'HMI', 'PC', 'Printer', 'PC', 'Switch', 'Device'];
 
         vm.cancel = function () {
             $state.go('group', {
