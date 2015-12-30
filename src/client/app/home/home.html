@@ -1,5 +1,5 @@
 <md-list>
-    <md-list-item  ng-repeat="device in devices" class="md-3-line md-whiteframe-z1" ng-click="showDetails(device.groupId,device._id)">
+    <md-list-item  ng-repeat="device in devices | orderBy: 'ip_address'" class="md-3-line md-whiteframe-z1" ng-click="showDetails(device.groupId,device._id)">
         <div layout="row" flex>
             <md-icon layout="column" layout-align="start end" ng-style="{color: device.icon.color }" md-svg-icon="{{ device.icon.name }}" aria-label="{{ device.icon.name }}"></md-icon>
             <div class="md-list-item-text md-padding">
