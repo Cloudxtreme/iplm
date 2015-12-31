@@ -28,7 +28,7 @@
             });
         };
 
-        $scope.addDevice = function ($event) {
+        $scope.$on('AddDevice', function ($event) {
             $mdDialog.show({
                 clickOutsideToClose: true,
                 controller: 'AddDeviceController',
@@ -40,9 +40,9 @@
                 },
                 templateUrl: 'app/devices/add-device-dialog.html'
             }).then(getDevices);
-        };
+        });
 
-        $scope.addGroup = function ($event) {
+        $scope.$on('AddGroup', function ($event) {
             $mdDialog.show({
                 clickOutsideToClose: true,
                 controller: 'AddGroupController',
@@ -54,7 +54,7 @@
                 },
                 templateUrl: 'app/groups/add-group-dialog.html'
             }).then($scope.$emit('refreshSidebar'));
-        };
+        });
         
         getDevices();
 

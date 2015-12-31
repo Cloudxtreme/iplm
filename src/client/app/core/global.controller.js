@@ -89,6 +89,14 @@
                 searchQuery: null
             };
 
+            $scope.addDevice = function (ev) {
+                $rootScope.$broadcast('AddDevice', ev);
+            };
+            
+            $scope.addGroup = function (ev) {
+                $rootScope.$broadcast('AddGroup', ev);
+            };
+            
             $scope.clickNav = function () {
                 // Publish an event that can be handled by directives
                 $rootScope.$emit('NavClicked');
