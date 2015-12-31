@@ -28,6 +28,7 @@
         // Internal methods
         // *********************************
         function init() {
+            $scope.$emit('Loading', true);
             $list.search.query({
                 searchQuery: $stateParams.searchQuery
             }, success, error);
@@ -38,6 +39,7 @@
         }
 
         function success(data) {
+            $scope.$emit('Loading', false);
             vm.searchResults = data;
         }
     }
