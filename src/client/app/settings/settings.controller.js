@@ -10,7 +10,7 @@
     function SettingsController($scope) {
         var vm = this;
 
-        vm.version = '1.0.0';
+        vm.version = '1.0.1';
         
         $scope.$emit('Loading', false);
     }
