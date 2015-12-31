@@ -65,10 +65,6 @@
                 $scope.CurrentGroup = data;
             });
 
-            $scope.$on('refreshSidebar', function (event, data) {
-                $scope.$broadcast('doRefreshSidebar');
-            });
-
             $scope.$on('DeviceReady', function (event) {
                 $scope.loading = true;
             });

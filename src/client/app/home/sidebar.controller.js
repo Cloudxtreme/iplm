@@ -23,7 +23,7 @@
 
         getGroups();
 
-        $scope.$on('doRefreshSidebar', function () {
+        $scope.$on('RefreshSidebar', function () {
             getGroups();
         });
     }

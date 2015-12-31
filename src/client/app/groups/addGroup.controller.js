@@ -5,9 +5,9 @@
         .module('ipListApp')
         .controller('AddGroupController', addGroupController);
 
-    addGroupController.$inject = ['$mdDialog', '$list', '$scope'];
+    addGroupController.$inject = ['$mdDialog', '$list', '$rootScope'];
     /* @ngInject */
-    function addGroupController($mdDialog, $list, $scope) {
+    function addGroupController($mdDialog, $list, $rootScope) {
         var vm = this;
 
         vm.group = {};
@@ -19,7 +19,7 @@
 
         function success(group) {
             $mdDialog.hide(group);
-            //$scope.$emit('refreshSidebar');
+            $rootScope.$broadcast('RefreshSidebar');
         }
     }
 })();

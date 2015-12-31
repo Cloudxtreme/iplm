@@ -53,7 +53,7 @@
                     group: {}
                 },
                 templateUrl: 'app/groups/add-group-dialog.html'
-            }).then($scope.$emit('refreshSidebar'));
+            });//.then($scope.$emit('refreshSidebar'));
         });
         
         getDevices();
@@ -155,7 +155,7 @@
                 };
 
                 function onDeleted() {
-                    $scope.$emit('refreshSidebar');
+                     $rootScope.$broadcast('RefreshSidebar');
                 }
             }
         }
