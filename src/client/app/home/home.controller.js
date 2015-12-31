@@ -14,6 +14,7 @@
         $scope.showGroupDetails = showGroupDetails;
         $scope.selected = [];
         $scope.Group = [];
+        $scope.$emit('Loading', true);
         
         $scope.$on('ShowGroupDetails', function (event) {
             showGroupDetails(event);
