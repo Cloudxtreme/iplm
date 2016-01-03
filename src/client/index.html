@@ -45,7 +45,7 @@
             <div ng-include="'app/home/toolbar.html'"></div>
             <div ng-if="searchModel.searchActive" class="search-overlay" ng-click="toggleSearch()"></div>
             <md-content id="contentMain" layout="column" flex ui-view layout-padding></md-content>
-            <md-fab-speed-dial ng-if="!searchModel.searchActive" md-open="false" md-direction="up" class="md-fab-bottom-right md-fling">
+            <md-fab-speed-dial ng-if="showMainToolbar" md-open="false" md-direction="up" class="md-fab-bottom-right md-fling">
                 <md-fab-trigger>
                     <md-button aria-label="Add..." class="md-fab md-primary md-hue-2">
                         <md-icon>add</md-icon>
