@@ -1,13 +1,14 @@
+/* global mRefresh */
 (function () {
     'use strict';
     angular
         .module('ipListApp')
         .controller('HomeController', HomeController);
 
-    HomeController.$inject = ['$list', '$mdSidenav', '$mdBottomSheet', '$mdDialog', 
+    HomeController.$inject = ['$list', '$mdSidenav', '$mdBottomSheet', '$mdDialog',
                               '$scope', '$stateParams', '$rootScope', '$state', '$filter'];
     /* @ngInject */
-    function HomeController($list, $mdSidenav, $mdBottomSheet, $mdDialog, 
+    function HomeController($list, $mdSidenav, $mdBottomSheet, $mdDialog,
                             $scope, $stateParams, $rootScope, $state, $filter) {
 
         $scope.devices = [];
@@ -15,7 +16,7 @@
         $scope.selected = [];
         $scope.Group = [];
         $scope.$emit('Loading', true);
-        
+
         $scope.$on('ShowGroupDetails', function (event) {
             showGroupDetails(event);
         });
@@ -53,20 +54,17 @@
                     group: {}
                 },
                 templateUrl: 'app/groups/add-group-dialog.html'
-            });//.then($scope.$emit('refreshSidebar'));
+            });
         });
         
         getDevices();
 
         $scope.$watch('devices', function(value){
-            //var val = value || [];
-            //if (val.length > 0) {
-                mRefresh({
-                    nav: '#navMain',
-                    scrollEl: '#contentMain',
-                    onBegin: refreshFunction
-                });
-            //}
+            mRefresh({
+                nav: '#navMain',
+                scrollEl: '#contentMain',
+                onBegin: refreshFunction
+            });
         });
 
         // *********************************

@@ -10,7 +10,7 @@
     function deviceController($list, $stateParams, $mdDialog, $state, $scope) {
         var vm = this;
         vm.device = {};
-
+        $scope.$emit('Loading', true);
         vm.update = function () {
             var icon = {
                 name: vm.device.device,
@@ -89,10 +89,12 @@
 
         function error(err) {
             console.error(err);
+            $scope.$emit('Loading', false);
         }
 
         function success(data) {
             vm.device = data;
+            $scope.$emit('Loading', false);
         }
 
         function init() {

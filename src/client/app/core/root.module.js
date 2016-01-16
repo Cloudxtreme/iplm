@@ -9,7 +9,7 @@
 
     angular.module('ipListApp')
         .run(function ($rootScope, $state) {
-
+            
             $rootScope.$on('$stateChangeSuccess', function (event, toState, toParams, fromState) {
                 $state.previous = fromState;
             });
